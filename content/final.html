@@ -2,7 +2,7 @@
         <head>
         <title>cp2021 homework site</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='run.html'>run</a></li></ul><li class='has-children'><a href='EXAM.html'>EXAM</a><ul class='dropdown'><li><a href='W13 demo.html'>W13 demo</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='SSH push.html'>SSH push</a></li></ul><li><a href='HW2.html'>HW2</a><li><a href='W10.html'>W10</a><li><a href='HW3.html'>HW3</a><li class='has-children'><a href='bsnake.html'>bsnake</a><ul class='dropdown'><li><a href='snake(ai).html'>snake(ai)</a></li></ul><li><a href='Final Project.html'>Final Project</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='run.html'>run</a></li></ul><li class='has-children'><a href='EXAM.html'>EXAM</a><ul class='dropdown'><li><a href='W13.html'>W13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='SSH push.html'>SSH push</a></li></ul><li><a href='HW2.html'>HW2</a><li><a href='W10.html'>W10</a><li><a href='HW3.html'>HW3</a><li><a href='final.html'>final</a><li class='has-children'><a href='bsnake.html'>bsnake</a><ul class='dropdown'><li><a href='snake(ai).html'>snake(ai)</a></li></ul><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -139,11 +139,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">EXAM << <a href='EXAM.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1<br /><h1>W13 demo</h1>
-<p><a href="./../downloads/w12demo.txt">w12demo.txt</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Flag_of_the_Republic_of_China#Construction_details">ROC 國旗規格</a>.</p>
-<p><a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%9B%BD%E6%97%97#%E8%A7%84%E6%A0%BC">PROC 國旗規格</a> - 可以根據此規格定義, 新增 <button id="procflas">PROC flag</button> 按鈕.</p>
-<p><a href="https://en.wikipedia.org/wiki/Flag_of_the_United_States#Specifications">USA 國旗規格</a> - 可以根據此規格定義, 新增 <button id="usaflag">USA flag</button> 按鈕.</p>
+    <div id="tipue_search_content">HW3 << <a href='HW3.html'>Previous</a> <a href='bsnake.html'>Next</a> >> bsnake<br /><h1>final</h1>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -182,7 +179,7 @@ function doSave(storage_id, filename){
 <script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
 <script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script>
 </p>
-<p><button id="add1to100">add 1 to 100</button><button id="p261">p261</button><button id="rocflag">ROC flag</button><button id="W13">W13</button></p>
+<p><button id="add1to100">add 1 to 100</button><button id="p261">p261</button><button id="rocflag">ROC flag</button><button id="W13">W13</button><button id="snake">snake</button><button id="final1">final1</button><button id="final2">final2</button></p>
 <p><!-- ######################  editor1 開始 ###################### --></p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
@@ -199,7 +196,106 @@ function doSave(storage_id, filename){
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
 <!-- 這裡的畫布 id 為 brython_div -->
-<br />EXAM << <a href='EXAM.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
+<div id="brython_div"></div>
+<p><!-- ######################  editor1 結束 ###################### --></p>
+<!-- 以下可以開始利用 editor1 的設定編寫對應 Brython 程式 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    # 注意這裡清除的畫布 id 為 brython_div
+    bd = doc["brython_div"]
+    bd.clear()
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run1():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/lee-kai-shin/9b7fcddbf597d15cb339fc83b48c7f99/raw/74ce4267518af0eb2a3b63f4d25560b5e5f2bec6/w13"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace1.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
+# 呼叫函式執行
+run1()
+</script>
+<!-- 以上為內建程式, 頁面可透過 ?src=gist_url 執行 -->
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+class button2:
+    def __init__(self, url):
+        self.url = url
+
+    # 記得加入 event 輸入變數
+    def do(self,ev):
+        Ace2.editor.setValue(open(self.url).read())
+        Ace2.editor.scrollToRow(0)
+        Ace2.editor.gotoLine(0)
+        Ace2.run()
+
+add1to100_url = "https://gist.githubusercontent.com/lee-kai-shin/c13fb5f02ece847e7ec33f7129da71d7/raw/548c7c4be470067d6d7b1a779199e9d9445b1281/w13"
+add1to100 = button2(add1to100_url)
+doc["add1to100"].bind('click', add1to100.do)
+################################# p261 start 
+p261_url = "https://gist.githubusercontent.com/lee-kai-shin/156a0fc0b78dade37c7f4b2c6ed9a8ea/raw/526efebff86786bf6f50eb5ae22ba2ca2873114a/w13"
+p261 = button2(p261_url)
+doc["p261"].bind('click', p261.do)
+################################## p261 end
+################################## rocflag start
+rocflag_url = "https://gist.githubusercontent.com/lee-kai-shin/4e24a823f81b236fe1a0a1ef757050c0/raw/644a00168b7a7750646a952d5cc81a8463e46b2b/w13_1"
+rocflag = button2(rocflag_url)
+doc["rocflag"].bind("click", rocflag.do)
+################################## rocflag end
+################################# W13 start 
+W13_url = "https://gist.githubusercontent.com/lee-kai-shin/270f6b45d62af86b2bd45a074a25cb06/raw/69ecb7b6d88a3ce8eca4bf763273aed36f567726/w13_2"
+W13 = button2(W13_url)
+doc["W13"].bind('click', W13.do)
+################################## W13 end
+################################## snake start
+snake_url = "https://gist.githubusercontent.com/lee-kai-shin/8195c84b3e9838c0088c4e23eb7af0d1/raw/5b74c0be1defef7a7456e3db115e7d8923675db7/41023106_html.txt"
+snake = button2(snake_url)
+doc["snake"].bind("click", snake.do)
+################################## snake end
+################################## final1 start
+final1_url = "https://gist.githubusercontent.com/lee-kai-shin/4e7a05bca1b8bcfe962825b522acac5c/raw/034c3c04b6f6dbe011b6d6050999fd091d070ab1/final1"
+final1 = button2(final1_url)
+doc["final1"].bind("click", final1.do)
+################################## final1 end
+################################## final2 start
+final2_url = "https://gist.githubusercontent.com/lee-kai-shin/a1ad6993176fb04d61a879599c47cfd8/raw/96bf2e8582d8efc6e8b54c3b6f57213e8ef41af9/final2"
+final2 = button2(final2_url)
+doc["final2"].bind("click", final2.do)
+################################## final2 end
+</script>
+</p><br />HW3 << <a href='HW3.html'>Previous</a> <a href='bsnake.html'>Next</a> >> bsnake</div>
         
     <!-- footer -->
       <div class="container">
